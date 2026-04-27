@@ -13,7 +13,7 @@ const productRouter = require('./routes/productRouter')
 // database connction
 const database = require('./config/mongoose.connection')
 
-
+// setup
 app.set("view engine", "ejs")
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')))

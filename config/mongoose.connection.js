@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
-const dbgr = require('debug') ("development:mongoose");
+const config = require('config')
+// const dbgr = require('debug') ("development:mongoose");
 
-mongoose.connect("mongodb+srv://soluCoder23:Solu2004%40%23@sk-userdata.uzljo4c.mongodb.net/?appName=SK-UserData")
+mongoose.connect(`${config.get("MONGODB_URI")}/${config.get("DB_NAME")}`)
     .then(function () {
         console.log('db connected');
     })
