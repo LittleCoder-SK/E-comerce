@@ -8,11 +8,13 @@
     "dev": "nodemon app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "LittleCoder-SK",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "config": "^4.4.1",
     "cookie-parse": "^0.4.0",
+    "debug": "^4.4.3",
     "ejs": "^5.0.2",
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
