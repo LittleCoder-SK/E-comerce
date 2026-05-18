@@ -1,0 +1,206 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    background-color: #c0c0c0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+}
+
+.top_nav {
+    color: #fff;
+    padding: 10px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top_nav h2 {
+    font-size: 22px;
+    color: #000;
+}
+
+.flex ul{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    font-weight: 550;
+}
+
+.flex ul li a{
+    color: rgb(68, 65, 65);
+}
+
+.flex ul li a:hover{
+    color: rgb(105, 95, 95);
+}
+
+.top_nav #logout {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 14px;
+    background-color: #ff0015;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    font-weight: 550;
+}
+
+.top_nav #logout:active {
+    transform: scale(0.95);
+}
+
+.hero{
+    display: flex;
+}
+
+/* sidebar */
+.sidebar {
+    width: 230px;
+    color: rgb(84, 79, 79);
+    height: calc(100vh - 52px);
+    padding: 20px 15px 10px 40px;
+    border-top-right-radius: 5px;
+}
+
+.create{
+    width: 100%;
+    height: 10%;
+}
+
+.create a{
+    color: rgb(132, 128, 128);
+    font-size: 16px;
+    line-height: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.create a:hover{
+    color: rgb(72, 66, 66);
+}
+
+.category {
+    width: 100%;
+    height: 40%;
+}
+
+.category h6 {
+    font-size: 17px;
+    font-weight: 500;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.category ul {
+    margin-top: 10px;
+}
+
+.category ul li a {
+    color: rgb(132, 128, 128);
+    font-size: 16px;
+    line-height: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.category a:hover {
+    color: rgb(72, 66, 66);
+}
+
+.filter {
+    width: 100%;
+    height: 40%;
+}
+
+.filter ul {
+    margin-top: 10px;
+}
+
+.filter h6 {
+    font-size: 17px;
+    font-weight: 500;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.filter ul li a {
+    color: rgb(132, 128, 128);
+    font-size: 16px;
+    line-height: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.filter a:hover {
+    color: rgb(72, 66, 66);
+}
+
+/* produts */
+.produts{
+    width: calc(100% - 230px);
+    height: calc(100vh - 52px);
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    overflow-y:scroll;
+    gap: 20px;
+
+}
+
+.produts::-webkit-scrollbar{
+    overscroll-behavior-y: none;
+}
+
+.produt-card{
+    width: 200px;
+    height: 200px;
+    background-color: aquamarine;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.image{
+    height: 75%;
+    background-color: beige;
+    position : relative;
+}
+.image img{
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    object-fit: cover;
+}
+
+.add-to-cart{
+    position: absolute;
+    bottom: 5px;
+    right: 8px;
+    opacity: 0.6;
+}
+
+.add-to-cart button{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    color: #000000;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-to-cart button:active{
+    scale: 0.95;
+}
+
+.produt-detail{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px 0 10px;
+    align-items: center;
+    height: 25%;
+}

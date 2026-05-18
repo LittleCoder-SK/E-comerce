@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cart</title>
+  <link rel="stylesheet" href="/stylesheet/cart.css">
+</head>
+
+<body>
+  <h2>Your Cart</h2>
+
+  <div class="cart">
+    <div class="cart-card">
+
+      <% if (user.cart.length===0) { %>
+        <p class="empty">Cart is empty</p>
+        <% } %>
+
+
+            <% user.cart.forEach(item=> { %>
+
+                <div class="cart-item">
+
+                  <!-- IMAGE -->
+                  <div class="img">
+                    <img
+                      src="data:<%= item.product.image.contentType %>;base64,<%= item.product.image.toString('base64') %>"
+                      alt="">
+                  </div>
+
+                  <!-- DETAILS -->
+                  <div class="detail">
+
+                    <div class="product-detail">
+                      <h4>
+                        <%= item.product.name %>
+                      </h4>
+
+                      <p>Original Price: ₹<%= item.product.price %>
+                      </p>
+
+                      <p>Discount: <%= item.product.discount %>%</p>
+
+                      <p>Quantity: <%= item.quantity %>
+                      </p>
+
+                      <p>
+                        Final Price:
+                        ₹<%= item.finalPrice.toFixed(0) %>
+                      </p>
+
+                    </div>
+
+                  </div>
+
+                  <!-- REMOVE BUTTON -->
+                  <div class="remove">
+                    <form action="/shop/removeFromCart/<%= item.product._id %>" method="POST">
+                      <button type="submit">🗑️</button>
+                    </form>
+                  </div>
+
+                </div>
+
+                <% }) %>
+
+                  <!-- CART SUMMARY -->
+                  <% if (user.cart.length> 0) { %>
+
+                      <hr>
+
+                      <div class="summary">
+
+                        <h3>Order Summary</h3>
+
+                        <p>
+                          Subtotal:
+                          <span>₹<%= subtotal.toFixed(0) %></span>
+                        </p>
+
+                        <p>
+                          Shipping:
+                          <span>₹<%= shipping %></span>
+                        </p>
+
+                        <hr>
+
+                        <h2>
+                          Total:
+                          <span>₹<%= total.toFixed(0) %></span>
+                        </h2>
+
+                      </div>
+
+                      <% } %>
+
+    </div>
+  </div>
+  </div>
+  </div>
+
+</body>
+
+</html>

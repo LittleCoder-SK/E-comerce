@@ -1,13 +1,19 @@
 const express = require('express')
 const app = express()
-const cookieParser = require('cookie-parse')
+const cookieParser = require('cookie-parser')
 const path = require('path')
 const { log } = require('console')
+const flash = require('connect-flash')
+const expressSession = require('express-session')
+
+require('dotenv').config()
 
 // routers
 const ownerRouter = require('./routes/ownerRouter')
 const userRouter = require('./routes/userRouter')
 const productRouter = require('./routes/productRouter')
+const indexRouter = require('./routes/indexRouter')
+const shop = require('./routes/shop')
 
 
 // database connction
@@ -18,13 +24,19 @@ app.set("view engine", "ejs")
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({extended: true}))
+app.use(cookieParser())
 
+app.use(expressSession({
+    secret: process.env.JWT_KEY,
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(flash());
+
+app.use('/', indexRouter)
 app.use('/owners', ownerRouter);
 app.use('/users', userRouter);
 app.use('/products', productRouter);
-
-app.get('/', function(req, res){
-    res.send('now im ready')
-})
+app.use('/shop', shop)
 
 app.listen(3000)

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>products</title>
+    <link rel="stylesheet" href="/stylesheet/createProduct.css">
+</head>
+
+<body>
+
+    <div class="products">
+        <h3>Create your own produts</h3>
+
+        <div class="product">
+            <form action="/products/create" method="post" enctype="multipart/form-data">
+
+                <div class="product_name">
+                    <label for="">Name</label>
+                    <input type="text" name="name" id="" placeholder="product name">
+                </div>
+
+                <div class="product_price">
+                    <div class="price">
+                        <label for="price">price</label>
+                        <input type="number" placeholder="price" id="price" name="price">
+
+                    </div>
+                    <div class="discount">
+                        <label for="discount">discount</label>
+                        <input type="number" placeholder="discount" id="discount" name="discount">
+                    </div>
+                </div>
+
+                <div class="upload_file">
+                    <input type="file" name="image">
+                </div>
+
+                <div class="colors">
+                    <fieldset>
+                        <legend>choose color</legend>
+                        <div>
+                            <label for="textcolor">text color</label>
+                            <input type="color" name="textcolor" id="textcolor">
+
+                        </div>
+                        <div>
+                            <label for="panelcolor">panel color</label>
+                            <input type="color" name="panelcolor" id="panelcolor">
+                        </div>
+                        <div>
+                            <label for="bgcolor">bg color</label>
+                            <input type="color" name="bgcolor" id="bgcolor">
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="submit">
+                    <input type="submit" value="create product">
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

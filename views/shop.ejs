@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shop</title>
+    <link rel="stylesheet" href="/stylesheet/shop.css">
+</head>
+
+<body>
+
+    <div class="top_nav">
+        <h2>Devil's Mart</h2>
+        <div class="flex">
+            <ul>
+                <li><a href="/shop">Home</a></li>
+                <li><a href="/shop/products">Products</a></li>
+                <li><a href="/shop/cart">Cart</a></li>
+                <li><a href="/myaccount">My Account</a></li>
+                <a href="/users/logout" id="logout">logout</a>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="hero">
+
+        <aside class="sidebar">
+            <div class="create">
+                <a href="/admin">Create Product</a>
+            </div>
+            <div class="category">
+                <h6>Categories</h6>
+                <ul>
+                    <li><a href="/shop?category=clothing">Clothing</a></li>
+                    <li><a href="/shop?category=electronics">Electronics</a></li>
+                    <li><a href="/shop?category=books">Books</a></li>
+                </ul>
+            </div>
+            <div class="filter">
+                <h6>Filters</h6>
+                <ul>
+                    <li><a href="/shop?filter=price_asc">Price: Low to High</a></li>
+                    <li><a href="/shop?filter=price_desc">Price: High to Low</a></li>
+                    <li><a href="/shop?filter=rating_desc">Rating: High to Low</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- produts -->
+        <div class="produts">
+            <% products.forEach(function(product) { %>
+                <div class="produt-card">
+                    <div class="image">
+                        <img src="data:<%= product.image.contentType %>;base64,<%= product.image.toString('base64') %>"
+                            alt="product-image">
+                        <div class="add-to-cart">
+                            <form action="/shop/addToCart/<%= product._id %>" method="POST">
+                                <button type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                        <path
+                                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+                                    </svg></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="produt-detail">
+                        <h5>
+                            <%= product.name %>
+                        </h5>
+                        <p>$<span>
+                                <%= product.price %>
+                            </span></p>
+                    </div>
+                </div>
+                <% }); %>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

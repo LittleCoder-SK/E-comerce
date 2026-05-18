@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+}
+
+h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cart{
+    max-width: 600px;
+    margin: 0 auto 10px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.cart-card{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.empty{
+    text-align: center;
+    color: #777;
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.cart-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item:hover{
+    background-color: #f9f9f9;
+}
+
+.img{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cart-item .detail{
+    flex: 1;
+    margin-left: 15px;
+}
+
+.cart-item .detail h4{
+    font-size: 14px;
+}
+
+.cart-item .detail p{
+    font-size: 12px;
+    color: #555;
+}
+
+.remove button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #c00;
+    transition: color 0.3s ease;
+}
+
+.summary {
+    text-align: center;
+    width: 100%;
+}
+
+hr{
+    margin: 15px 0;
+    border: none;
+    border-top: 1px solid #d4d4d4;
+}
+
+.summary h2 {
+    margin-top: 10px;
+}
