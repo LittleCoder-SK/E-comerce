@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.user-account{
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+
+.account{
+    width: 230px;
+    height: 100vh;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.account-card{
+    width: 90%;
+    height: 100px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+   margin-top: 15px;
+   padding: 5px;
+}
+
+.account-card h4{
+    font-size: 18px;
+    color: #333333;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.account-card p{
+    font-size: 14px;
+    color: #666666;
+    line-height: 25px;
+}
+
+/* logout */
+.out{
+    width: 90%;
+    height: 40px;
+    align-items: center;
+    margin-top: auto;
+    display: flex;
+    gap: 5px;
+}
+
+.out .logout{
+    width: 20px;
+    height: 20px;
+}
+
+.out a{
+    font-size: 15px;
+    color: #333333;
+    text-decoration: none;
+}
+
+/* products */
+.products{
+    width: calc(100% - 230px);
+    height: calc(100vh - 52px);
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    overflow-y:scroll;
+    gap: 20px;
+
+}
+
+.header{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    padding-left: 10px;
+    padding-top: 5px;
+    font-size: 10px;
+    color: rgb(160, 156, 156);
+}
+
+.products::-webkit-scrollbar{
+    overscroll-behavior-y: none;
+}
+
+.all-product{
+    display: flex;
+    height: calc(100% - 30px);
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 10px;
+}
+
+.product-card{
+    width: 200px;
+    height: 200px;
+    background-color: aquamarine;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.image{
+    height: 75%;
+    background-color: beige;
+    position : relative;
+}
+.image img{
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    object-fit: cover;
+}
+
+.add-to-cart{
+    position: absolute;
+    bottom: 5px;
+    right: 8px;
+    opacity: 0.6;
+}
+
+.add-to-cart button{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    color: #000000;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-to-cart button:active{
+    scale: 0.95;
+}
+
+.product-detail{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5px;
+    align-items: center;
+    height: 25%;
+}

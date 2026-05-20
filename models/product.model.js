@@ -10,7 +10,11 @@ const productShema = mongoose.Schema({
     },
     bgcolor: String,
     panelcolor: String,
-    textcolor: String
+    textcolor: String,
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user'
+    }
 })
 
 module.exports = mongoose.model('product', productShema);

@@ -1,17 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>my account</title>
+    <link rel="stylesheet" href="/stylesheet/account.css">
 </head>
-<body>
-    <h2>My Account</h2>
 
-    <div class="account">
-        <div class="account-card">
-            <h3>Personal Information</h3>   
+<body>
+
+    <div class="user-account">
+
+        <div class="account">
+            <h2>My Account</h2>
+           <% if (user) { %>
+                <div class="account-card">
+                    <h4>Personal Information</h4>
+                    <div class="info">
+                        <p>Name: <%= user.fullname %></p>
+                        <p>Email: <%= user.email %></p>
+                    </div>
+                </div>
+            <% } %>
+            <div class="out">
+                <img src="/images/right-from-bracket-solid.png" alt="out" class="logout"><a
+                    href="/users/logout">Logout</a>
+            </div>
         </div>
-    </div>
+
+        <div class="products">
+            <div class="header">
+                <h2>Products created by, <%= user.fullname %></h2>
+            </div>
+            <div class="all-product">
+                <!-- product card -->
+                <% products.forEach( product => { %>
+                    <div class="product-card">
+                    <div class="image">
+                        <img src="data:image/jpeg;base64,<%= product.image.toString('base64') %>" alt="product-image">
+                        <div class="add-to-cart">
+                            <form action="" method="POST">
+                                <button type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                        <path
+                                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+                                    </svg></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="product-detail">
+                        <p>
+                            <%= product.name %>
+                        </p>
+                        <p> ₹<span>
+                                <%= product.price %>
+                            </span></p>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+
+        </div>
 </body>
+
 </html>

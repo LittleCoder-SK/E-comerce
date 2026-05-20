@@ -2,12 +2,23 @@ const express = require('express');
 const router = express.Router()
 const upload = require('../config/multer.config')
 const productModel = require('../models/product.model')
+const isLoggedIn = require('../middleware/is.loggedIn')
+const userModel = require('../models/user.model')
 
 // crate product
-router.post("/create", upload.single('image'), async (req, res)=>{
+router.post("/create", isLoggedIn, upload.single('image'), async (req, res)=>{
     try {
         const { name, price, discount, bgcolor, panelcolor, textcolor } = req.body;
         const image = req.file.buffer;
+
+         let user = await userModel.findOne({ email: req.user.email })
+            if(!user){
+                req.flash('error', 'User not found');
+                return res.status(404).send('User not found');
+            }
+
+            console.log(user);
+            
 
         const newProduct = await productModel.create({
             image,
@@ -16,7 +27,8 @@ router.post("/create", upload.single('image'), async (req, res)=>{
             discount,
             bgcolor,
             panelcolor,
-            textcolor
+            textcolor,
+            user: user._id
         });
 
         req.flash('success', 'Product created successfully');
@@ -28,7 +40,7 @@ router.post("/create", upload.single('image'), async (req, res)=>{
 });
 
 // delete product
-router.get("/delete/:id", async (req, res)=>{
+router.get("/delete/:id", isLoggedIn, async (req, res)=>{
     try {
         const { id } = req.params;
 
