@@ -143,6 +143,17 @@
     scale: 0.95;
 }
 
+.delete button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #c00;
+    transition: color 0.3s ease;
+    position: absolute;
+    top: 5px;
+    right: 8px;
+}
+
 .product-detail{
     display: flex;
     justify-content: space-between;

@@ -36,6 +36,19 @@ router.get('/myaccount', isLoggedIn, async (req, res) => {
     }
 })
 
+// delete product
+router.get("/myaccount/delete/:id", isLoggedIn, async (req, res)=>{
+    try {
+        const { id } = req.params;
 
+        await productModel.findByIdAndDelete(id);
+
+        req.flash('success', 'Product deleted successfully');
+        res.redirect('/shop/products');
+    } catch (error) {
+        req.flash('error', 'Error deleting product');
+        res.status(500).send('Error deleting product');
+    }
+});
 
 module.exports = router;
