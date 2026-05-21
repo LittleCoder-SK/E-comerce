@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>products</title>
+    <link rel="stylesheet" href="/stylesheet/editProduct.css">
+</head>
+
+<body>
+
+    <div class="products">
+        <h3>Create your own produts</h3>
+
+        <div class="product">
+            <form action="/myaccount/edit" method="post" enctype="multipart/form-data">
+
+                <div class="product_name">
+                    <label for="">Name</label>
+                    <!-- hidden field -->
+                    <input type="hidden" name="id" value="<%= product._id %>">
+                    <input type="text" name="name" id="" placeholder="product name" value="<%= product.name %>">
+                </div>
+
+                <div class="product_price">
+                    <div class="price">
+                        <label for="price">price</label>
+                        <input type="number" placeholder="price" id="price" name="price" value="<%= product.price %>">
+
+                    </div>
+                    <div class="discount">
+                        <label for="discount">discount</label>
+                        <input type="number" placeholder="discount" id="discount" name="discount" value="<%= product.discount %> ">
+                    </div>
+                </div>
+
+                <div class="upload_file">
+                    <input type="file" name="image">
+                </div>
+
+                <div class="submit">
+                    <input type="submit" value="Save product">
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
